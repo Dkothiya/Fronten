@@ -29,7 +29,6 @@ export default function Productlist() {
   };
 
   const searchHandle = async (e) => {
-    // console.warn(e.target.value)
     let key = e.target.value;
     if (key) {
       let result = await fetch(`http://localhost:5000/search/${key}`);
