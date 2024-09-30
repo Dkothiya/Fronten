@@ -9,7 +9,7 @@ export default function Productlist() {
   }, []);
 
   const getProducts = async () => {
-    let result = await fetch("http://localhost:5000/products", {
+    let result = await fetch("http://localhost:6000/products", {
       headers: {
         authorization: JSON.parse(localStorage.getItem("token")),
       },
@@ -19,7 +19,7 @@ export default function Productlist() {
   };
 
   const deleteProduct = async (id) => {
-    let result = await fetch(`http://localhost:5000/product/${id}`, {
+    let result = await fetch(`http://localhost:6000/product/${id}`, {
       method: "Delete",
     });
     result = await result.json();
@@ -29,10 +29,9 @@ export default function Productlist() {
   };
 
   const searchHandle = async (e) => {
-    // console.warn(e.target.value)
     let key = e.target.value;
     if (key) {
-      let result = await fetch(`http://localhost:5000/search/${key}`);
+      let result = await fetch(`http://localhost:6000/search/${key}`);
       result = await result.json();
       if (result) {
         setProducts(result);
